@@ -1,0 +1,19 @@
+@import "../../styles/shared.scss";
+
+.TodoFilter-label {
+  padding: 16px;
+  border: 1px solid $black;
+  border-radius: 4px;
+}
+
+.TodoFilter-input {
+  margin-left: 20px;
+  padding: 5px;
+
+  border: 1px solid $black;
+  border-radius: 4px;
+  font: inherit;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  background-color: transparent;
+}

@@ -1,0 +1,24 @@
+@import "../../styles/shared.scss";
+
+.IconButton {
+  margin: 0;
+  margin-right: 25px;
+  padding: 18px;
+  border: none;
+  border-radius: 50%;
+  color: $white;
+  font: inherit;
+  background-color: $green;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: all 250ms $timing-function;
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+}
