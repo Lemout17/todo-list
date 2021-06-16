@@ -1,6 +1,7 @@
 import { Component } from "react"
 import "./styles/base.scss"
 import { v4 as uuidv4 } from "uuid"
+import Title from "./components/Title"
 import Container from "./components/Container"
 import TodoEditor from "./components/TodoEditor"
 import TodoList from "./components/TodoList"
@@ -100,6 +101,10 @@ export default class App extends Component {
     const filteredTodos = this.getFilteredTodos()
     return (
       <div>
+        <Title
+          title={"The to do list to organize work & life"}
+        />
+
         <Container>
           <IconButton
             onClick={this.toggleModal}
