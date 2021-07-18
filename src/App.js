@@ -30,16 +30,10 @@ export default class App extends Component {
     const prevTodos = prevState.todos
 
     if (nextTodos !== prevTodos) {
-      localStorage.setItem(
-        "todos",
-        JSON.stringify(nextTodos)
-      )
+      localStorage.setItem("todos", JSON.stringify(nextTodos))
     }
 
-    if (
-      nextTodos.length > prevTodos.length &&
-      prevTodos.length !== 0
-    ) {
+    if (nextTodos.length > prevTodos.length && prevTodos.length !== 0) {
       this.toggleModal()
     }
   }
@@ -58,18 +52,14 @@ export default class App extends Component {
 
   deleteTodo = (todoId) => {
     this.setState((prevState) => ({
-      todos: prevState.todos.filter(
-        (todo) => todo.id !== todoId
-      ),
+      todos: prevState.todos.filter((todo) => todo.id !== todoId),
     }))
   }
 
   toggleCompleted = (todoId) => {
     this.setState(({ todos }) => ({
       todos: todos.map((todo) =>
-        todo.id === todoId
-          ? { ...todo, completed: !todo.completed }
-          : todo
+        todo.id === todoId ? { ...todo, completed: !todo.completed } : todo
       ),
     }))
   }
@@ -84,9 +74,7 @@ export default class App extends Component {
     const { todos, filter } = this.state
     const normalizedFilter = filter.toLowerCase()
     return todos
-      .filter((todo) =>
-        todo.text.toLowerCase().includes(normalizedFilter)
-      )
+      .filter((todo) => todo.text.toLowerCase().includes(normalizedFilter))
       .sort((a, b) => a.text.localeCompare(b.text))
   }
 
@@ -101,26 +89,14 @@ export default class App extends Component {
     const filteredTodos = this.getFilteredTodos()
     return (
       <div>
-        <Title
-          title={"The to do list to organize work & life"}
-        />
+        <Title title={"The to do list to organize work & life"} />
 
         <Container>
-          <IconButton
-            onClick={this.toggleModal}
-            aria-label="Add todo"
-          >
-            <AddIcon
-              width="32px"
-              height="32px"
-              fill="#fff"
-            />
+          <IconButton onClick={this.toggleModal} aria-label="Add todo">
+            <AddIcon width="32px" height="32px" fill="#fff" />
           </IconButton>
 
-          <TodoFilter
-            value={filter}
-            onChange={this.changeFilter}
-          />
+          <TodoFilter value={filter} onChange={this.changeFilter} />
         </Container>
 
         <TodoList
